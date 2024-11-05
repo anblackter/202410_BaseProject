@@ -3,10 +3,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BookModule} from "./book/book.module";
-import {EditorialModule} from "./editorial/editorial.module";
-import {HttpClientModule} from "@angular/common/http";
-import {BookListComponent} from "./book/book-list/book-list.component";
+import { BookModule } from "./book/book.module";
+import { EditorialModule } from "./editorial/editorial.module";
+import { HttpClientModule } from "@angular/common/http";
+import { BookListComponent } from "./book/book-list/book-list.component";
+import { AuthorModule } from "./author/author.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {BookListComponent} from "./book/book-list/book-list.component";
     AppRoutingModule,
     BookModule,
     EditorialModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthorModule
   ],
   providers: [
     provideClientHydration()
