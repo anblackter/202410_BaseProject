@@ -7,6 +7,8 @@ import { faker } from '@faker-js/faker';
 import { AuthorDetailComponent } from './author-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorDetail } from '../author-detail';
+import { RouterTestingModule } from "@angular/router/testing";
+import { AuthorService } from "../author.service";
 
 describe('AuthorDetailComponent', () => {
   let component: AuthorDetailComponent;
@@ -15,8 +17,9 @@ describe('AuthorDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientModule],
-      declarations: [ AuthorDetailComponent ]
+      imports:[HttpClientModule, RouterTestingModule],
+      declarations: [ AuthorDetailComponent ],
+      providers: [AuthorService]
     })
       .compileComponents();
   }));

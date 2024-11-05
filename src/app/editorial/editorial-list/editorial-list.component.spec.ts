@@ -7,6 +7,7 @@ import { faker } from '@faker-js/faker';
 import { EditorialListComponent } from './editorial-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorialDetail } from '../editorial-detail';
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe('EditorialListComponent', () => {
   let component: EditorialListComponent;
@@ -15,7 +16,7 @@ describe('EditorialListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientModule],
+      imports:[HttpClientModule, RouterTestingModule],
       declarations: [ EditorialListComponent ]
     })
       .compileComponents();

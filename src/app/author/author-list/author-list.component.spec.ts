@@ -8,6 +8,7 @@ import { AuthorListComponent } from './author-list.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorDetail } from '../author-detail';
+import { AuthorService } from "../author.service";
 
 describe('AuthorListComponent', () => {
   let component: AuthorListComponent;
@@ -16,8 +17,9 @@ describe('AuthorListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientModule],
-      declarations: [ AuthorListComponent ]
+      imports:[HttpClientModule, RouterTestingModule],
+      declarations: [AuthorListComponent],
+      providers: [AuthorService]
     })
       .compileComponents();
   }));
