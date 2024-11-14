@@ -4,18 +4,22 @@ import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
 import { RouterModule } from "@angular/router";
 import { AuthorRoutingModule } from "./author-routing.module";
+import { AuthorCreateComponent } from './author-create/author-create.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
     AuthorListComponent,
-    AuthorDetailComponent
+    AuthorDetailComponent,
+    AuthorCreateComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    AuthorRoutingModule
+    AuthorRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
   ]
