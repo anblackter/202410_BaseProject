@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookModule } from "./book/book.module";
 import { EditorialModule } from "./editorial/editorial.module";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { BookListComponent } from "./book/book-list/book-list.component";
 import { AuthorModule } from "./author/author.module";
 import { BookRoutingModule } from "./book/book-routing.module";
 import { AuthorRoutingModule } from "./author/author-routing.module";
 import { EditorialRoutingModule } from "./editorial/editorial-routing.module";
+import { HttpErrorInterceptorService } from "./interceptors/http-error-interceptor.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -25,10 +28,21 @@ import { EditorialRoutingModule } from "./editorial/editorial-routing.module";
     AuthorModule,
     BookRoutingModule,
     AuthorRoutingModule,
-    EditorialRoutingModule
+    EditorialRoutingModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
